@@ -12,9 +12,11 @@ public class Actors {
     public String dob;
     public String details;
 
+    public Actors(){
 
+    }
     //Constructors
-    public Actors(){}
+    //public Actors(){}
 
     public Actors(ObjectId _id,String name,String dob, String details){
         this._id=_id;
