@@ -4,36 +4,37 @@ package io.app.movieServer.models;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 
-public class Movies {
+public class Movie {
     @Id
     public ObjectId _id;
     public String name;
-    public String year;
+    public int year;
     public String genere;
-    //public List
+    public ArrayList<String> actorIds;
     public String description;
     public String imgurl;
 
 
-
-    public Movies(){
+    public Movie(){
 
     }
 
     //constructors of the declared objects.
-    public Movies(ObjectId _id, String name, String genere, String year, String description, String imgurl){
-        this._id=_id;
-        this.name=name;
-        this.year=year;
-        this.description=description;
-        this.imgurl=imgurl;
-        this.genere=genere;
 
+    public Movie(ObjectId _id, String name, int year, String genere, ArrayList<String> actorIds, String description, String imgurl) {
+        this._id = _id;
+        this.name = name;
+        this.year = year;
+        this.genere = genere;
+        this.actorIds = actorIds;
+        this.description = description;
+        this.imgurl = imgurl;
     }
+
+
 
     public String get_id() {
         return _id.toHexString();
@@ -51,11 +52,11 @@ public class Movies {
         this.name = name;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -81,5 +82,13 @@ public class Movies {
 
     public void setImgurl(String imgurl) {
         this.imgurl = imgurl;
+    }
+
+    public ArrayList<String> getActorIds() {
+        return actorIds;
+    }
+
+    public void setActorIds(ArrayList<String> actorIds) {
+        this.actorIds = actorIds;
     }
 }

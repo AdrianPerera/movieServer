@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 
-public class Actors {
+public class Actor {
     @Id
     public ObjectId _id;
 
@@ -12,13 +12,13 @@ public class Actors {
     public String dob;
     public String details;
 
-    public Actors(){
+    public Actor(){
 
     }
     //Constructors
-    //public Actors(){}
+    //public Actor(){}
 
-    public Actors(ObjectId _id,String name,String dob, String details){
+    public Actor(ObjectId _id, String name, String dob, String details){
         this._id=_id;
         this.name=name;
         this.dob=dob;
