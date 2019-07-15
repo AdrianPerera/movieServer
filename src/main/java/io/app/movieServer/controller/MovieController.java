@@ -25,34 +25,39 @@ public class MovieController {
     private ActorRepository actorRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Movie> getAllMovies() {
+    public List<MovieData> getAllMovies() {
         List<Movie> movieList = movieRepository.findAll();
+        List<MovieData> movieDatalist= new ArrayList<>();
+      //  List<Actor> actorList = new ArrayList<>();
 
-        List<Actor> actorList = new ArrayList<>();
 
-        for (Movie movie : movieList) {
+            for (Movie movie : movieList) {
 
-            MovieData movieData = new MovieData();
 
-            movieData.set_id(movie.get_id());       //assigning all of movie data except the actors in to movie data
-            movieData.setName(movie.getName());
-            movieData.setYear(movie.getYear());
-            movieData.setGenere(movie.getGenere());
-            movieData.setDescription(movie.getDescription());
-            movieData.setImgurl(movie.getImgurl());
+                MovieData movieData = new MovieData();
 
-            for (String actorId : movie.getActorIds()) {
-                Actor actor = actorRepository.findBy_id(new ObjectId(actorId));
-                actorList.add(actor);
+                movieData.set_id(movie.get_id());       //assigning all of movie data except the actors in to movie data
+                movieData.setName(movie.getName());
+                movieData.setYear(movie.getYear());
+                movieData.setGenere(movie.getGenere());
+                movieData.setDescription(movie.getDescription());
+                movieData.setImgurl(movie.getImgurl());
+
+                //for loop to assign the moviedata with movie objects.
+                List<Actor> actorList = new ArrayList<>();   //declaring a new list of Actor object
+                for (String actorId : movie.getActorIds()) {
+                    ObjectId a=new ObjectId(actorId);
+                    Actor actor = actorRepository.findBy_id(a);
+
+                    actorList.add(actor);
+                }
+
+                movieData.setActors(actorList);     //assigning the actors list into movieData.
+
+                movieDatalist.add(movieData);
+
             }
-
-
-            movieData.setActors(actorList);      //movieData is loaded with actordata name,dob,details. this needs to be assigned in to movieList
-
-            movieList.add();
-
-        }
-        return movieList;
+        return movieDatalist;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
