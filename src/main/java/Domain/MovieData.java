@@ -2,14 +2,13 @@ package Domain;
 
 import io.app.movieServer.models.Actor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MovieData {
     private String _id;
     private String name;
     private int year;
-    private String genere;
+    private String genre;
     private List<Actor> actors;
     private String description;
     private String imgurl;
@@ -38,12 +37,12 @@ public class MovieData {
         this.year = year;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public List<Actor> getActors() {

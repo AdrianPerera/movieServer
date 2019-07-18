@@ -39,7 +39,7 @@ public class MovieController {
                 movieData.set_id(movie.get_id());       //assigning all of movie data except the actors in to movie data
                 movieData.setName(movie.getName());
                 movieData.setYear(movie.getYear());
-                movieData.setGenere(movie.getGenere());
+                movieData.setGenre(movie.getGenre());
                 movieData.setDescription(movie.getDescription());
                 movieData.setImgurl(movie.getImgurl());
 
@@ -69,7 +69,7 @@ public class MovieController {
         movieData.set_id(movie.get_id());       //assigning all of movie data except the actors in to movie data
         movieData.setName(movie.getName());
         movieData.setYear(movie.getYear());
-        movieData.setGenere(movie.getGenere());
+        movieData.setGenre(movie.getGenre());
         movieData.setDescription(movie.getDescription());
         movieData.setImgurl(movie.getImgurl());
 
@@ -87,7 +87,6 @@ public class MovieController {
 
         return movieData;
     }
-
 
     @RequestMapping(value = "/put/{id}", method = RequestMethod.PUT)
     public void modifyMovieById(@PathVariable("id") ObjectId id, @Valid @RequestBody Movie movie) {

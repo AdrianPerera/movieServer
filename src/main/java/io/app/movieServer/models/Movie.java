@@ -12,7 +12,7 @@ public class Movie {
     public ObjectId _id;
     public String name;
     public int year;
-    public String genere;
+    public String genre;
     public ArrayList<String> actorIds;
     public String description;
     public String imgurl;
@@ -24,11 +24,11 @@ public class Movie {
 
     //constructors of the declared objects.
 
-    public Movie(ObjectId _id, String name, int year, String genere, ArrayList<String> actorIds, String description, String imgurl) {
+    public Movie(ObjectId _id, String name, int year, String genre, ArrayList<String> actorIds, String description, String imgurl) {
         this._id = _id;
         this.name = name;
         this.year = year;
-        this.genere = genere;
+        this.genre = genre;
         this.actorIds = actorIds;
         this.description = description;
         this.imgurl = imgurl;
@@ -60,12 +60,12 @@ public class Movie {
         this.year = year;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getDescription() {
